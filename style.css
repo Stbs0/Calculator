@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 body {
   width: 100vw;
@@ -27,15 +27,15 @@ body {
   background-color: #283618;
   width: 100%;
   display: flex;
-}
-.result {
   justify-content: center;
   align-items: center;
+}
+.result {
   width: 100%;
   height: 70%;
   color: #fefae0;
-  background-color: ;
 }
+
 .operations-container {
   flex: 3 1 80%;
   width: 100%;
