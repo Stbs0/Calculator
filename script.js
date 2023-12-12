@@ -1,6 +1,12 @@
+// variables definitions
+let num1 = "";
+let operator = "";
+let num2 = "";
+let secondNum2 = "";
+let secondNum1 = "";
 // oprations functions
 function add(a, b) {
-  return a + b;
+  return +a + +b;
 }
 function subtract(a, b) {
   return a - b;
@@ -11,10 +17,7 @@ function multiply(a, b) {
 function divide(a, b) {
   return a / b;
 }
-// variables definitions
-let num1 = "";
-let operator = "";
-let num2 = "";
+
 //  equal sign operator
 function operate(operator, num1, num2) {
   if (operator == "+") {
@@ -57,9 +60,9 @@ btn1.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "1";
+    num1 += "1";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn2.addEventListener("click", () => {
@@ -69,9 +72,9 @@ btn2.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "2";
+    num1 += "2";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn3.addEventListener("click", () => {
@@ -81,9 +84,9 @@ btn3.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "3";
+    num1 += "3";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn4.addEventListener("click", () => {
@@ -93,9 +96,9 @@ btn4.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "4";
+    num1 += "4";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 
@@ -106,9 +109,9 @@ btn5.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "5";
+    num1 += "5";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn6.addEventListener("click", () => {
@@ -118,9 +121,9 @@ btn6.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "6";
+    num1 += "6";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn7.addEventListener("click", () => {
@@ -130,9 +133,9 @@ btn7.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "7";
+    num1 += "7";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn8.addEventListener("click", () => {
@@ -142,9 +145,9 @@ btn8.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "8";
+    num1 += "8";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
   }
 });
 btn9.addEventListener("click", () => {
@@ -154,9 +157,21 @@ btn9.addEventListener("click", () => {
     result.textContent = num2;
     return num2;
   } else {
-    result.textContent += "9";
+    num1 += "9";
 
-    return (num1 = result.textContent);
+    return (result.textContent = num1);
+  }
+});
+btn0.addEventListener("click", () => {
+  if (operator != "") {
+    result.textContent = "";
+    num2 += "0";
+    result.textContent = num2;
+    return parseInt(num2);
+  } else {
+    result.textContent += "0";
+
+    return (num1 = parseInt(result.textContent));
   }
 });
 // opretors
@@ -166,10 +181,7 @@ btnPlus.addEventListener("click", () => {
 btnMinus.addEventListener("click", () => {
   return (operator = "-");
 });
-btn0.addEventListener("click", () => {
-  result.textContent += "0";
-  return (num1 = result.textContent);
-});
+
 btndivide.addEventListener("click", () => {
   return (operator = "/");
 });
@@ -178,11 +190,15 @@ btnMulti.addEventListener("click", () => {
 });
 clear.addEventListener("click", () => {
   result.textContent = "";
+  num1 = "";
+  operator = "";
+  num2 = "";
 });
 equal.addEventListener("click", () => {
-  return (operator = "=");
-});
-equal.addEventListener("click", () => {
-  result.textContent = operate(operator, num1, num2);
-  return result.textContent;
+  let ans = "";
+  ans = operate(operator, num1, num2);
+  result.textContent = ans;
+  num2 = "";
+  operator = "";
+  return (num1 = String(ans));
 });
