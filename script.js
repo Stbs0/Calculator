@@ -22,7 +22,7 @@ function operate(operator) {
       return num1 / num2;
 
     default:
-      return 0;
+      return null;
   }
 }
 function populateDisplay() {
@@ -40,26 +40,48 @@ function populateDisplay() {
       }
     });
   });
-
+  let operation;
   operatorBtns.forEach((op) => {
     op.addEventListener('click', (e) => {
-      displayValue = '';
-      operator = e.target.textContent;
       if (num2 !== 0) {
-        num1 = operate(operator);
+        operation = operate(operator);
+        if (operation === Infinity) {
+          result.textContent = 'Error.Cannot divide by zero';
+          num1 = 0;
+          num2 = 0;
+          operator = '';
+          displayValue = '';
+          operation = null;
+          return;
+        }
+        num1 = parseFloat(operation.toFixed(4));
 
         num2 = 0;
-        operator = '';
+
         result.textContent = num1;
       }
+      displayValue = '';
+      operator = e.target.textContent;
     });
   });
   equal.addEventListener('click', (e) => {
-    num1 = operate(operator);
+    operation = operate(operator);
+    if (operation === Infinity) {
+      result.textContent = 'Error.Cannot divide by zero';
+      num1 = 0;
+      num2 = 0;
+      operator = '';
+      displayValue = '';
+      operation = null;
+      return;
+    }
+    num1 = parseFloat(operation.toFixed(4));
+
     num2 = 0;
+
     operator = '';
     displayValue = '';
-    result.textContent = num1;
+    result.textContent = num1 ?? '';
   });
   clear.addEventListener('click', () => {
     num1 = 0;
